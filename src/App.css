@@ -1,0 +1,238 @@
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(1rem, 4vw, 2rem);
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+  background: linear-gradient(165deg, #0f0d13 0%, #1a1625 35%, #252030 100%);
+  color: #e8e4ef;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-title {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+  background: linear-gradient(135deg, #c9b8e0 0%, #a78bfa 50%, #7c5cbf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: #8b8299;
+  font-weight: 500;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.todo-section {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.todo-section--month {
+  border-left: 3px solid #a78bfa;
+}
+
+.todo-section--week {
+  border-left: 3px solid #67d4b4;
+}
+
+.todo-section--day {
+  border-left: 3px solid #f59e7b;
+}
+
+.todo-section__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: #d4d0dc;
+}
+
+.todo-section__form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.todo-section__input {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  color: #e8e4ef;
+  font-size: 0.95rem;
+}
+
+.todo-section__input::placeholder {
+  color: #6b6378;
+}
+
+.todo-section__input:focus {
+  outline: none;
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.15);
+}
+
+.todo-section__add {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #7c5cbf 0%, #5b4299 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.todo-section__add:hover {
+  filter: brightness(1.1);
+}
+
+.todo-section__add:active {
+  transform: scale(0.98);
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.todo-list__empty {
+  color: #6b6378;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.todo-item--drag-over {
+  background: rgba(167, 139, 250, 0.12);
+  border-radius: 6px;
+  margin: 0 -0.25rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.todo-item__grip {
+  flex-shrink: 0;
+  cursor: grab;
+  color: #6b6378;
+  font-size: 0.75rem;
+  padding: 0.2rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.todo-item__grip:active {
+  cursor: grabbing;
+}
+
+.todo-item__grip:hover {
+  color: #a78bfa;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item--done .todo-item__text {
+  text-decoration: line-through;
+  color: #6b6378;
+}
+
+.todo-item__status {
+  flex-shrink: 0;
+  width: 7rem;
+  min-width: 5rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.25);
+  color: #e8e4ef;
+  font-size: 0.8rem;
+  font-family: inherit;
+}
+
+.todo-item__status::placeholder {
+  color: #6b6378;
+}
+
+.todo-item__status:focus {
+  outline: none;
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.15);
+}
+
+.todo-item__text {
+  flex: 1;
+  font-size: 0.95rem;
+  word-break: break-word;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: text;
+  color: inherit;
+  font-family: inherit;
+}
+
+.todo-item__text:hover {
+  color: #c9b8e0;
+}
+
+.todo-item__text-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.15rem 0;
+  border: none;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.5);
+  background: transparent;
+  color: inherit;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.todo-item__text-input:focus {
+  outline: none;
+  border-bottom-color: #a78bfa;
+}
+
+.todo-item__remove {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  accent-color: #f59e7b;
+  cursor: pointer;
+}
+
